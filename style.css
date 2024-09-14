@@ -1,0 +1,40 @@
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -380px; /* Start off-screen to the left */
+  width: 380px;
+  height: 100%;
+  background-color: #f4f4f4;
+  transition: left 0.2s ease-in-out;
+}
+
+#sidebar.open {
+  left: 0;
+}
+
+#my_dataviz {
+  float: left; /* Position the SVG container next to the sidebar */
+  overflow: hidden;
+}
+
+.link-animation {
+  animation: path-animation 6s linear infinite;
+  stroke-dasharray: 1000, 4; /* Adjust the second value for dash length */
+  stroke-dashoffset: 1000;
+}
+
+@keyframes path-animation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    stroke-dasharray: 1000, 50;
+  }
+  50% {
+    stroke-dasharray: 1000, 100; /* Adjust the second value for pulse amplitude */
+  }
+}

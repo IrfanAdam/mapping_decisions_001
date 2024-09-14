@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.cdnfonts.com/css/helvetica-neue-5"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css?family=Helvetica Neue:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <title>Journey Map</title>
+    <style>
+      body {
+        background: #eee;
+      }
+      .Bubblenodes text {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">Home</a>
+
+    <hr />
+    <div id="sbp"></div>
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Load color palette -->
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <!-- load data -->
+    <script src="../System/01-Data/01sysData.js"></script>
+    <script src="../System/01-Data/02processNodes.js"></script>
+    <script src="../System/01-Data/03processLinks.js"></script>
+
+    <!-- load definitions -->
+    <script src="../System/02-Define/00gloabalVariables.js"></script>
+    <script src="../System/02-Define/01injectData.js"></script>
+    <script src="../System/03-Render/03lines.js"></script>
+    <script src="../System/03-Render/04pseudo.js"></script>
+    <script src="../System/03-Render/05labels.js"></script>
+    <script src="../System/03-Render/06containers.js"></script>
+
+    <!-- load rendering files -->
+    <script src="../System/03-Render/01nodes.js"></script>
+    <!-- more animations -->
+    <script src="../System/03-Render/02links.js"></script>
+    <script src="../System/04-Dynamic/01AAhelper.js"></script>
+    <script src="../System/04-Dynamic/04anxiousAvoid.js"></script>
+    <script src="../System/02-Define/04geometryLinks.js"></script>
+    <script src="../System/02-Define/03geometryLines.js"></script>
+    <script src="../System/02-Define/02geometryNodes.js"></script>
+
+    <script src="../System/download.js"></script>
+  </body>
+</html>

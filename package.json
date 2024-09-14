@@ -1,0 +1,7 @@
+{
+  "name": "mapping_decisions_001", // Replace with your desired project name
+  "version": "1.0.0", // Initial version number
+  "description": "A brief description of your project",
+  "author": "coded in silence",
+  "license": "ISC" // Choose an appropriate license (MIT, ISC, etc.)
+}
