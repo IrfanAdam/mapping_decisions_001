@@ -46,6 +46,7 @@ function setLinkDOM(link, gmtDom1, gmtDom2) {
   updateLinkGeometry(link, updateAttr);
   addLinkArray(link, startSide, gmtDom1);
   addLinkArray(link, endSide, gmtDom2);
+  console.log("hii....");
 }
 
 function adjustlLinkEndPoints(link, nodeSide, nodeDOM) {
