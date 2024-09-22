@@ -15,13 +15,13 @@ var sysPadding = {
     subtextY: 2,
     rowX: 0,
     rowY: 0,
-    section: 24,
-    container: 20,
+    section: 20,
+    container: 24,
   },
   sysSpacing = {
     nodesX: -12,
     columnsX: 72,
-    sectionsY: 16,
+    sectionsY: 32,
     rowsY: 50,
   },
   sysRadius = {
@@ -67,11 +67,9 @@ const DOMGeometries = {
   pseudoNodes: [],
 };
 
-const searchStep = 20;
-const avoidObs = 10;
-
+const searchStep = 12;
+const avoidObs = 8;
 const overlapThreshold = 4;
-
 const gapMargin = 12; //used for lines
 const moveAvoid = 12; //used for lines
 

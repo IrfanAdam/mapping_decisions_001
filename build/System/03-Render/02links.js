@@ -7,15 +7,23 @@ function appendCirc(point, color) {
     .style("fill", color); // Adjust the fill color as needed
 }
 
-function renderLinks() {
-  for (let index = 0; index < slData.links.length; index++) {
-    const link = slData.links[index];
-    const gmtDom1 = DOMGeometries.nodes.find((n) => n.name === link.source);
-    const gmtDom2 = DOMGeometries.nodes.find((n) => n.name === link.target);
-    const relativeY = gmtDom2.y - gmtDom1.y;
-    const endSide = relativeY > 0 ? "top" : "bottom";
-    paintPath(link.name, endSide);
-  }
+function renderLink(link, gmtDom1, gmtDom2) {
+  const relativeY = gmtDom2.y - gmtDom1.y;
+  const startSide = relativeY > 0 ? "bottom" : "top";
+  const endSide = relativeY > 0 ? "top" : "bottom";
+
+  const startXpos = adjustlLinkEndPoints(link, startSide, gmtDom1);
+  const endXpos = adjustlLinkEndPoints(link, endSide, gmtDom2);
+
+  const updatePos = {
+    start: setLinkPoint(gmtDom1, startSide, startXpos),
+    end: setLinkPoint(gmtDom2, endSide, endXpos),
+  };
+
+  // appendCirc(updatePos.start, "blue"); //... use for bidirectional
+  // appendCirc(updatePos.end, "red");
+  updateLinkGeometry(link, updatePos);
+  paintPath(link.name, endSide);
 }
 
 const linkObstacles = [];
@@ -32,7 +40,7 @@ function paintPath(linkName, endPos) {
   linkObstacles.push(linkPath);
   if (linkPath) {
     const foundDOM = SBPlinks.filter((d) => d.name === linkName);
-    const arrBlade = 6;
+    const arrBlade = 5;
     const end = linkPath[linkPath.length - 1];
     var arrowY = end.y + (endPos === "bottom" ? arrBlade : -arrBlade);
     const startArrow = `
