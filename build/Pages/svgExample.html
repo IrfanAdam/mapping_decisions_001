@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated SVG Path with Gradient Glow Trail</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .path {
+            fill: none;
+            stroke: #555;
+            stroke-width: 4;
+        }
+
+        .glow-trail {
+            fill: none;
+            stroke: url(#gradient);
+            stroke-width: 4;
+            stroke-dasharray: 100 400;
+            stroke-linecap: round;
+            animation: moveGradient 5s linear infinite;
+        }
+
+        @keyframes moveGradient {
+            0% {
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dashoffset: -500;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg width="300" height="300" viewBox="0 0 300 300">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00ffff" stop-opacity="0" />
+                <stop offset="50%" stop-color="#00ffff" stop-opacity="1" />
+                <stop offset="100%" stop-color="#00ffff" stop-opacity="0" />
+            </linearGradient>
+        </defs>
+        <path class="path" d="M50,150 Q150,50 250,150 T450,150" />
+        <path class="glow-trail" d="M50,150 Q150,50 250,150 T450,150" />
+    </svg>
+</body>
+</html>
